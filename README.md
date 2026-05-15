@@ -52,6 +52,41 @@ nix develop "github:sbfaulkner/dev-shells#ruby-3-3"
 | `sqlite` | `sqlite`  | SQLite database and CLI             |
 | `ragel`  | `ragel`   | Ragel state machine compiler        |
 
+Helper binaries
+
+The flake also provides small helper programs that are available inside the
+corresponding dev shells:
+
+- `ruby-bundle` — runs `bundle check` and `bundle install` if gems are missing
+- `go-mod`     — runs `go list -m all` and `go mod download` if modules are missing
+
+These helpers are on PATH when you `nix develop` or `use flake` the language
+shells, so a typical `.envrc` looks like:
+
+```bash
+use flake "github:sbfaulkner/dev-shells#ruby-3-4"
+use flake "github:sbfaulkner/dev-shells#sqlite"
+
+watch_file Gemfile
+watch_file Gemfile.lock
+
+# run the helper to ensure gems are installed (fast if already present)
+ruby-bundle
+```
+
+Or for Go:
+
+```bash
+use flake "github:sbfaulkner/dev-shells#go-1-26"
+use flake "github:sbfaulkner/dev-shells#ragel"
+
+watch_file go.mod
+watch_file go.sum
+
+# ensure modules are downloaded
+go-mod
+```
+
 ## Supported systems
 
 - `aarch64-darwin` (Apple Silicon)
