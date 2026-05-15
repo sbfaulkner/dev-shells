@@ -28,7 +28,7 @@ nix develop "github:sbfaulkner/dev-shells#ruby"
 | Shell  | Packages                              | Description                             |
 |--------|---------------------------------------|-----------------------------------------|
 | `ruby` | `ruby`, `libyaml`                      | Ruby with libyaml (native YAML support)         |
-| `go`   | `go`, `gotools`, `ragel`               | Latest stable Go with tools and Ragel           |
+| `go`   | `go`, `gotools`                        | Go with standard dev tools (goimports etc.)     |
 
 ## Supported systems
 
