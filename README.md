@@ -55,7 +55,7 @@ Helper binaries
 The flake also provides small helper programs that are available inside the
 corresponding dev shells:
 
-- `ruby-bundle` — runs `bundle check` and `bundle install` if gems are missing
+- `ruby-bundle` — runs `bundle check` and `bundle install --path vendor/bundle` (installs into `vendor/bundle` by default) if gems are missing
 - `go-mod`     — runs `go list -m all` and `go mod download` if modules are missing
 
 These helpers are on PATH when you `nix develop` or `use flake` the language
