@@ -4,7 +4,7 @@ pkgs.mkShell {
   name = "ruby-3-3";
 
   packages = with pkgs; [
-    ruby
+    ruby_3_3
     libyaml
   ];
 }
