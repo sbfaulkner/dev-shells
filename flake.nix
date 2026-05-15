@@ -19,8 +19,10 @@
           pkgs = pkgsFor system;
         in
         {
-          ruby = import ./shells/ruby.nix { inherit pkgs; };
-          go   = import ./shells/go.nix   { inherit pkgs; };
+          ruby   = import ./shells/ruby.nix   { inherit pkgs; };
+          go     = import ./shells/go.nix     { inherit pkgs; };
+          sqlite = import ./shells/sqlite.nix { inherit pkgs; };
+          ragel  = import ./shells/ragel.nix  { inherit pkgs; };
         }
       );
     };

@@ -8,14 +8,23 @@ required.
 
 ### With direnv
 
-Add one line to your project's `.envrc`:
+Add to your project's `.envrc`:
 
 ```bash
 use flake "github:sbfaulkner/dev-shells#ruby"
 ```
 
-Then run `direnv allow`. direnv will fetch the shell definition directly from
-this repo and activate it whenever you enter the directory.
+Shells compose freely — just add more `use flake` lines:
+
+```bash
+use flake "github:sbfaulkner/dev-shells#ruby"
+use flake "github:sbfaulkner/dev-shells#sqlite"
+```
+
+Nix's content-addressed store ensures shared packages are never duplicated on
+disk regardless of how many shells reference them.
+
+Then run `direnv allow`.
 
 ### With `nix develop`
 
@@ -25,10 +34,19 @@ nix develop "github:sbfaulkner/dev-shells#ruby"
 
 ## Available shells
 
-| Shell  | Packages                              | Description                             |
-|--------|---------------------------------------|-----------------------------------------|
-| `ruby` | `ruby`, `libyaml`                      | Ruby with libyaml (native YAML support)         |
-| `go`   | `go`, `gotools`                        | Go with standard dev tools (goimports etc.)     |
+### Language shells
+
+| Shell  | Packages           | Description                                     |
+|--------|--------------------|-------------------------------------------------|
+| `ruby` | `ruby`, `libyaml`  | Ruby with libyaml (native YAML support)         |
+| `go`   | `go`, `gotools`    | Go with standard dev tools (goimports etc.)     |
+
+### Addon shells
+
+| Shell    | Packages  | Description                        |
+|----------|-----------|------------------------------------|
+| `sqlite` | `sqlite`  | SQLite database and CLI             |
+| `ragel`  | `ragel`   | Ragel state machine compiler        |
 
 ## Supported systems
 
@@ -42,6 +60,6 @@ To work on this repo locally:
 ```bash
 git clone https://github.com/sbfaulkner/dev-shells
 cd dev-shells
-nix flake show   # inspect available outputs
+nix flake show      # inspect available outputs
 nix develop .#ruby  # try a shell locally
 ```
