@@ -21,8 +21,10 @@
         {
           ruby-3-3 = import ./shells/ruby-3-3.nix { inherit pkgs; };
           ruby-3-4 = import ./shells/ruby-3-4.nix { inherit pkgs; };
+          ruby-4-0 = import ./shells/ruby-4-0.nix { inherit pkgs; };
           go-1-24  = import ./shells/go-1-24.nix  { inherit pkgs; };
           go-1-25  = import ./shells/go-1-25.nix  { inherit pkgs; };
+          go-1-26  = import ./shells/go-1-26.nix  { inherit pkgs; };
           sqlite = import ./shells/sqlite.nix { inherit pkgs; };
           ragel  = import ./shells/ragel.nix  { inherit pkgs; };
         }

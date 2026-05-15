@@ -40,8 +40,10 @@ nix develop "github:sbfaulkner/dev-shells#ruby-3-3"
 |--------|--------------------|-------------------------------------------------|
 | `ruby-3-3` | `ruby_3_3`, `libyaml` | Ruby 3.3 with libyaml (native YAML support)      |
 | `ruby-3-4` | `ruby_3_4`, `libyaml` | Ruby 3.4 with libyaml (native YAML support)      |
+| `ruby-4-0` | `ruby_4_0`, `libyaml` | Ruby 4.0 with libyaml (native YAML support)      |
 | `go-1-24`  | `go_1_24`, `gotools`  | Go 1.24 with standard dev tools (goimports etc.) |
 | `go-1-25`  | `go_1_25`, `gotools`  | Go 1.25 with standard dev tools (goimports etc.) |
+| `go-1-26`  | `go_1_26`, `gotools`  | Go 1.26 with standard dev tools (goimports etc.) |
 
 ### Addon shells
 
