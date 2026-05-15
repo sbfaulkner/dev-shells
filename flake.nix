@@ -49,12 +49,12 @@
           '';
         in
         {
-          ruby-3-3 = import ./shells/ruby-3-3.nix { inherit pkgs; rubyBundle; };
-          ruby-3-4 = import ./shells/ruby-3-4.nix { inherit pkgs; rubyBundle; };
-          ruby-4-0 = import ./shells/ruby-4-0.nix { inherit pkgs; rubyBundle; };
-          go-1-24  = import ./shells/go-1-24.nix  { inherit pkgs; goMod; };
-          go-1-25  = import ./shells/go-1-25.nix  { inherit pkgs; goMod; };
-          go-1-26  = import ./shells/go-1-26.nix  { inherit pkgs; goMod; };
+          ruby-3-3 = import ./shells/ruby-3-3.nix { inherit pkgs rubyBundle; };
+          ruby-3-4 = import ./shells/ruby-3-4.nix { inherit pkgs rubyBundle; };
+          ruby-4-0 = import ./shells/ruby-4-0.nix { inherit pkgs rubyBundle; };
+          go-1-24  = import ./shells/go-1-24.nix  { inherit pkgs goMod; };
+          go-1-25  = import ./shells/go-1-25.nix  { inherit pkgs goMod; };
+          go-1-26  = import ./shells/go-1-26.nix  { inherit pkgs goMod; };
           sqlite = import ./shells/sqlite.nix { inherit pkgs; };
           ragel  = import ./shells/ragel.nix  { inherit pkgs; };
         }
