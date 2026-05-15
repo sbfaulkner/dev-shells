@@ -4,7 +4,7 @@ pkgs.mkShell {
   name = "go";
 
   packages = with pkgs; [
-    go_1_24
+    go
     gotools
     ragel
   ];

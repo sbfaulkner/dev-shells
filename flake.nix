@@ -2,7 +2,7 @@
   description = "Reusable dev shells for use with direnv or nix develop";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-25.05-darwin";
   };
 
   outputs = { self, nixpkgs }:

@@ -27,8 +27,8 @@ nix develop "github:sbfaulkner/dev-shells#ruby"
 
 | Shell  | Packages                              | Description                             |
 |--------|---------------------------------------|-----------------------------------------|
-| `ruby` | `ruby_3_3`, `libyaml`, `sqlite`       | Ruby 3.3 with common native deps        |
-| `go`   | `go_1_24`, `gotools`, `ragel`         | Go 1.24 with tools and Ragel scanner generator |
+| `ruby` | `ruby`, `libyaml`, `sqlite`            | Latest stable Ruby with common native deps      |
+| `go`   | `go`, `gotools`, `ragel`               | Latest stable Go with tools and Ragel           |
 
 ## Supported systems
 
