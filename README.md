@@ -11,13 +11,13 @@ required.
 Add to your project's `.envrc`:
 
 ```bash
-use flake "github:sbfaulkner/dev-shells#ruby"
+use flake "github:sbfaulkner/dev-shells#ruby-3-3"
 ```
 
 Shells compose freely — just add more `use flake` lines:
 
 ```bash
-use flake "github:sbfaulkner/dev-shells#ruby"
+use flake "github:sbfaulkner/dev-shells#ruby-3-3"
 use flake "github:sbfaulkner/dev-shells#sqlite"
 ```
 
@@ -29,7 +29,7 @@ Then run `direnv allow`.
 ### With `nix develop`
 
 ```bash
-nix develop "github:sbfaulkner/dev-shells#ruby"
+nix develop "github:sbfaulkner/dev-shells#ruby-3-3"
 ```
 
 ## Available shells
@@ -38,8 +38,8 @@ nix develop "github:sbfaulkner/dev-shells#ruby"
 
 | Shell  | Packages           | Description                                     |
 |--------|--------------------|-------------------------------------------------|
-| `ruby` | `ruby`, `libyaml`  | Ruby with libyaml (native YAML support)         |
-| `go`   | `go`, `gotools`    | Go with standard dev tools (goimports etc.)     |
+| `ruby-3-3` | `ruby`, `libyaml`  | Ruby 3.3 with libyaml (native YAML support)     |
+| `go-1-24`  | `go`, `gotools`    | Go 1.24 with standard dev tools (goimports etc.) |
 
 ### Addon shells
 
@@ -61,5 +61,5 @@ To work on this repo locally:
 git clone https://github.com/sbfaulkner/dev-shells
 cd dev-shells
 nix flake show      # inspect available outputs
-nix develop .#ruby  # try a shell locally
+nix develop .#ruby-3-3  # try a shell locally
 ```

@@ -1,10 +1,10 @@
 { pkgs }:
 
 pkgs.mkShell {
-  name = "ruby";
+  name = "go-1-24";
 
   packages = with pkgs; [
-    ruby
-    libyaml
+    go
+    gotools
   ];
 }
