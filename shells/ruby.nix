@@ -6,6 +6,5 @@ pkgs.mkShell {
   packages = with pkgs; [
     ruby
     libyaml
-    sqlite
   ];
 }
