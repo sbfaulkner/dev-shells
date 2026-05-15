@@ -7,5 +7,6 @@ pkgs.mkShell {
   packages = with pkgs; lib.optional (rubyBundle != null) rubyBundle ++ [
     ruby_3_4
     libyaml
+    pkg-config
   ];
 }
