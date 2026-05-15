@@ -26,8 +26,10 @@
               exit 0
             fi
             if ! ${pkgs.ruby}/bin/bundle check >/dev/null 2>&1; then
-              echo "Missing gems; running bundle install..."
-              ${pkgs.ruby}/bin/bundle install --jobs=4 --retry=3
+              echo "Missing gems; running bundle install into vendor/bundle..."
+              # prefer local vendor dir to avoid touching global gem dirs
+              ${pkgs.ruby}/bin/bundle config set --local path 'vendor/bundle' || true
+              ${pkgs.ruby}/bin/bundle install --jobs=4 --retry=3 --path vendor/bundle
             else
               echo "Gems up-to-date."
             fi
