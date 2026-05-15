@@ -29,5 +29,42 @@
           ragel  = import ./shells/ragel.nix  { inherit pkgs; };
         }
       );
+
+      apps = forAllSystems (system:
+        let
+          pkgs = pkgsFor system;
+        in
+        {
+          ruby-bundle = pkgs.writeScriptBin "ruby-bundle" ''
+            #!${pkgs.bash}/bin/bash
+            set -euo pipefail
+            if [ ! -f Gemfile ]; then
+              echo "No Gemfile found; nothing to do."
+              exit 0
+            fi
+            if ! ${pkgs.ruby}/bin/bundle check >/dev/null 2>&1; then
+              echo "Missing gems; running bundle install..."
+              ${pkgs.ruby}/bin/bundle install --jobs=4 --retry=3
+            else
+              echo "Gems up-to-date."
+            fi
+          '';
+
+          go-mod = pkgs.writeScriptBin "go-mod" ''
+            #!${pkgs.bash}/bin/bash
+            set -euo pipefail
+            if [ ! -f go.mod ]; then
+              echo "No go.mod found; nothing to do."
+              exit 0
+            fi
+            if ! ${pkgs.go}/bin/go list -m all >/dev/null 2>&1; then
+              echo "Fetching Go modules..."
+              ${pkgs.go}/bin/go mod download
+            else
+              echo "Go modules fetched."
+            fi
+          '';
+        }
+      );
     };
 }
